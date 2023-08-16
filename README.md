@@ -1,2 +1,2 @@
-# esphome-configs
-Config files for my ESPHome devices
+# ESPHome Configs
+Config files for my [ESPHome](https://esphome.io/) devices
