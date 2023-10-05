@@ -1,0 +1,29 @@
+alias: Wake-up Light
+description: ""
+trigger:
+  - platform: time
+    at: "07:20:00"
+condition: []
+action:
+  - repeat:
+      count: 10
+      sequence:
+        - device_id: bc00c8bf9b9f347c741bd10f65b5efa1
+          domain: light
+          entity_id: 944a3b4720bf11c6d475341a7ef64ed2
+          type: brightness_increase
+        - delay:
+            hours: 0
+            minutes: 1
+            seconds: 0
+            milliseconds: 0
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: bc00c8bf9b9f347c741bd10f65b5efa1
+    entity_id: 944a3b4720bf11c6d475341a7ef64ed2
+    domain: light
+mode: single

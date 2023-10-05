@@ -1,0 +1,28 @@
+alias: Light Cycle
+description: ""
+trigger:
+  - platform: sun
+    event: sunrise
+    offset: 0
+    id: Sunrise
+  - platform: sun
+    event: sunset
+    offset: 0
+    id: Sunset
+condition: []
+action:
+  - if:
+      - condition: trigger
+        id:
+          - Sunrise
+    then:
+      - type: turn_off
+        device_id: 9519921af22d69c0b68a530f7b10efe6
+        entity_id: 458b77ba17d3503ef0dcb01e099f3440
+        domain: light
+    else:
+      - type: turn_on
+        device_id: 9519921af22d69c0b68a530f7b10efe6
+        entity_id: 458b77ba17d3503ef0dcb01e099f3440
+        domain: light
+mode: single
