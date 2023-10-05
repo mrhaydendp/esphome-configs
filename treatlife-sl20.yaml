@@ -10,8 +10,6 @@ esphome:
 # Device SoC
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
-  framework:
-    version: latest
 
 # Wi-Fi & AP Setup
 wifi:
@@ -81,7 +79,7 @@ light:
   warm_white_color_temperature: 2700 K
   constant_brightness: true
   id: thelight
-  restore_mode: ALWAYS_ON
+  restore_mode: RESTORE_DEFAULT_ON
 
 # Set Default Color on Boot
   on_turn_on:
