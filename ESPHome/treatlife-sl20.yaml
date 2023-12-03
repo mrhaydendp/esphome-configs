@@ -1,12 +1,11 @@
 # Device Name
 substitutions:
-  name: "treatlife-sl20"
+  name: "porch-light"
   friendly_name: "Porch Light"
 
 # Device Config
 esphome:
   name: ${name}
-  name_add_mac_suffix: true
 
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
@@ -18,7 +17,7 @@ preferences:
 captive_portal:
 wifi:
   ap: {}
-  use_address: "porch-light.lan"
+  use_address: "${name}.lan"
 
 logger:
 web_server:
@@ -26,6 +25,7 @@ web_server:
 
 # Home Assistant & OTA Keys
 api:
+  reboot_timeout: 0s
 ota:
 
 # Wi-Fi Strength
