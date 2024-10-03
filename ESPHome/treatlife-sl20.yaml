@@ -1,7 +1,7 @@
 # Device Name
 substitutions:
-  name: "porch-light"
-  friendly_name: "Porch Light"
+  name: "treatlife-sl20"
+  friendly_name: "Bedroom Bulb"
 
 # Device Config
 esphome:
@@ -11,22 +11,23 @@ bk72xx:
   board: generic-bk7231t-qfn32-tuya
 
 preferences:
-  flash_write_interval: 1min
+  flash_write_interval: 5min
 
 # AP & Webserver Setup
 captive_portal:
 wifi:
   ap: {}
-  use_address: "${name}.lan"
+  use_address: "${name}.local"
 
 logger:
 web_server:
   port: 80
 
-# Home Assistant & OTA Keys
+# Home Assistant API & OTA
 api:
   reboot_timeout: 0s
 ota:
+  - platform: esphome
 
 # Wi-Fi Strength
 sensor:
@@ -41,16 +42,13 @@ sensor:
     - lambda: return x / 60.0;
   unit_of_measurement: minutes
 
-# Factory Reset Button
+# Restart & Factory Reset Buttons
 button:
+  - platform: restart
+    name: Reboot
   - platform: factory_reset
     name: Factory Reset
     id: Reset
-
-# Restart Switch
-switch:
-  - platform: restart
-    name: Reboot
 
 # Output Pins
 output:
@@ -73,4 +71,4 @@ light:
   warm_white_color_temperature: 2700 K
   constant_brightness: true
   id: thelight
-  restore_mode: RESTORE_DEFAULT_ON
+  restore_mode: RESTORE_AND_ON
